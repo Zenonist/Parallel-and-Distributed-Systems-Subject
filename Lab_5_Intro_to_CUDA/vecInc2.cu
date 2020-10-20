@@ -5,7 +5,7 @@
 __global__ void vecInc(int *A,int *newA){
     int i;
     for (i = threadIdx.x;i < N;i = i + T){
-	newA[i] = A[i] + 1;
+	    newA[i] = A[i] + 1;
     }
 }
 int main (int argc, char *argv[]){
