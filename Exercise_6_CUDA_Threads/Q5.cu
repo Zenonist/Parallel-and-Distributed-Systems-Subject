@@ -1,17 +1,12 @@
 #include <stdio.h>
 
-#define Width 16
-#define T 4
+#define Width 8
+#define T 2
 
-__global__ void vecTranspose(int *a, int *b, int width , int size) {
+__global__ void vecTranspose(int *a, int *b, int width) {
     int Row = blockIdx.y * blockDim.y + threadIdx.y;
     int Col = blockIdx.x * blockDim.x + threadIdx.x;
-    for (int k = 0; k < width; k++){
-        //int index = Row * width + Col;
-        b[Row * width + k] = a[k * width + Col];
-        //printf("%d %d\n",b[Row * width + k],a[k * width + Col]);
-        //printf("%d %d %d %d\n",k * width + Col,Row * width + k,k,index);
-    }
+    b[Col * width + Row] = a[Row * width + Col];
 }
 
 int main(){

@@ -13,6 +13,7 @@ int main(int argc, char *argv[]){
     int size = N * N * sizeof(int);
     int a[N][N] , *devA;
     srand(1234);
+    
     printf("Original A array\n");
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -34,6 +35,7 @@ int main(int argc, char *argv[]){
     cudaMemcpy(a, devA, size, cudaMemcpyDeviceToHost);
     
     cudaFree(devA);
+    
     printf("\nNew A array \n");
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){

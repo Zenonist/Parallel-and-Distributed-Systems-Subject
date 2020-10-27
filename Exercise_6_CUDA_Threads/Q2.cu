@@ -14,12 +14,14 @@ int main(int argc, char *argv[]){
     int size = N * sizeof(int);
     int a[N], b[N], *devA, *devB;
     int blocks;
+    
+    //Compute the blocks in case that N % T != 0
     if (N % T != 0){
         blocks =(N+T-1) / T;
     }else{
         blocks = N/T;
     }
-    
+    //Assign the number
     for (int i = 0; i < N; i++){
         a[i] = i;
     }

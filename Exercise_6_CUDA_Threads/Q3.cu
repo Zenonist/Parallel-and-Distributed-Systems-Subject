@@ -17,6 +17,8 @@ int main(int argc, char *argv[]){
     int size = N * sizeof(int);
     int a[N], b[N], c[N], *devA, *devB, *devC;
     int blocks;
+    
+    //Compute the blocks in case that N % T != 0
     if (N % T != 0){
         blocks =(N+T-1) / T;
     }else{
